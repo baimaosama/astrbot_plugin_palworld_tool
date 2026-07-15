@@ -1,0 +1,8 @@
+name: astrbot_plugin_palworld
+display_name: Palworld 服务器助手
+author: moeneri
+desc: Astrbot 的机器人插件。可用于查询 Palworld/幻兽帕鲁 服务器信息、在线玩家、性能指标和中文参数表，并支持玩家进退服通知与 UID 白名单关服。
+short_desc: Palworld 服务器查询、玩家通知与白名单关服。
+version: "0.0.1"
+astrbot_version: ">=4.9.2,<5"
+repo: https://github.com/moeneri/astrbot_plugin_palworld

@@ -1,0 +1,90 @@
+{
+  "api_base_url": {
+    "type": "string",
+    "description": "Palworld REST API 基址，不含末尾斜杠。",
+    "default": "http://127.0.0.1:8212/v1/api"
+  },
+  "api_username": {
+    "type": "string",
+    "description": "Palworld REST API Basic Auth 用户名。",
+    "default": "admin"
+  },
+  "api_password": {
+    "type": "string",
+    "description": "Palworld REST API Basic Auth 密码，请妥善保护配置文件。",
+    "default": ""
+  },
+  "request_timeout_seconds": {
+    "type": "float",
+    "description": "单次 API 请求的总超时秒数，适用于查询、关服请求和监控通知。",
+    "default": 10.0
+  },
+  "monitor_enabled": {
+    "type": "bool",
+    "description": "是否启用玩家进服、退服监控。",
+    "default": true
+  },
+  "monitor_interval_seconds": {
+    "type": "int",
+    "description": "玩家状态轮询间隔秒数，运行时至少 10 秒。",
+    "default": 30
+  },
+  "notify_join": {
+    "type": "bool",
+    "description": "是否发送玩家进服通知。",
+    "default": true
+  },
+  "notify_leave": {
+    "type": "bool",
+    "description": "是否发送玩家退服通知。",
+    "default": true
+  },
+  "max_players_per_message": {
+    "type": "int",
+    "description": "玩家列表单条消息最多展示的玩家数，运行时至少 1。",
+    "default": 50
+  },
+  "shutdown_whitelist": {
+    "type": "list",
+    "description": "允许执行 /pal shutdown 的 UID 列表，可使用 /sid 获取自己的 UID。",
+    "default": [],
+    "items": {
+      "type": "string"
+    }
+  },
+  "shutdown_wait_seconds": {
+    "type": "int",
+    "description": "关服指令等待秒数，必须 >= 0。",
+    "default": 10
+  },
+  "shutdown_message": {
+    "type": "string",
+    "description": "发送关服指令时显示到游戏内的通知消息。",
+    "default": "服务器即将重启，请稍后重新连接。"
+  },
+  "notification_timezone": {
+    "type": "string",
+    "description": "查询时间与玩家通知使用的 IANA 时区。",
+    "default": "Asia/Shanghai"
+  },
+  "game_server_host": {
+    "type": "string",
+    "description": "PublicIP 为空时可选的游戏服务器地址补充；留空则使用 API 主机。",
+    "default": ""
+  },
+  "game_server_password": {
+    "type": "string",
+    "description": "可选的游戏进入密码，仅在显式开启展示时使用，不是 API 管理密码。",
+    "default": ""
+  },
+  "show_server_password": {
+    "type": "bool",
+    "description": "是否在参数图片中显示手动配置的游戏进入密码区域。",
+    "default": false
+  },
+  "mask_server_password": {
+    "type": "bool",
+    "description": "显示游戏进入密码时是否进行脱敏；关闭会在聊天中暴露完整密码。",
+    "default": true
+  }
+}
