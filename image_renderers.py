@@ -132,10 +132,12 @@ def _draw_settings_chip(
     outline: str,
     max_width: int,
 ) -> int:
-    width = min(int(draw.textlength(text, font=font)) + 30, max_width)
-    text = _fit_text(draw, text, font, max(1, width - 30))
+    text_width = int(draw.textlength(text, font=font))
+    padding = 30
+    width = min(text_width + padding, max_width)
+    display_text = _fit_text(draw, text, font, max(1, width - padding))
     draw.rounded_rectangle((x, y, x + width, y + 38), 19, fill=fill, outline=outline)
-    draw.text((x + 15, y + 9), text, font=font, fill=_PRIMARY)
+    draw.text((x + 15, y + 9), display_text, font=font, fill=_PRIMARY)
     return x + width + 9
 
 
@@ -420,14 +422,17 @@ def render_settings_cards(
 
     if server_password is not None:
         badge_text = f"进入密码  {server_password}"
-        badge_width = min(draw.textlength(badge_text, font=body_font) + 34, 466)
+        padding = 34
+        text_width = int(draw.textlength(badge_text, font=body_font))
+        badge_width = text_width + padding
         left = max(680, 1146 - badge_width)
-        badge_text = _fit_text(draw, badge_text, body_font, int(badge_width - 34))
+        available_width = 1146 - left - padding
+        display_text = _fit_text(draw, badge_text, body_font, max(1, available_width))
         draw.rounded_rectangle(
             (left, height - 68, 1146, height - 30),
             14,
             fill="#123d35",
             outline="#286653",
         )
-        draw.text((left + 17, height - 60), badge_text, font=body_font, fill="#87b8a9")
+        draw.text((left + 17, height - 60), display_text, font=body_font, fill="#87b8a9")
     return (_png(image),)
