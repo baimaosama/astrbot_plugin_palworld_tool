@@ -35,6 +35,7 @@ _SETTINGS_SECTION_COLORS = (
     "#d6b37c",
 )
 _FONT_CANDIDATES = (
+    Path("/AstrBot/data/fonts/MiSans-Normal.ttf"),
     Path("C:/Windows/Fonts/msyh.ttc"),
     Path("C:/Windows/Fonts/msyhbd.ttc"),
     Path("C:/Windows/Fonts/simhei.ttf"),
@@ -52,7 +53,7 @@ class ChineseFontUnavailableError(RuntimeError):
 def _font(size: int, *, bold: bool = False) -> ImageFont.FreeTypeFont:
     candidates = list(_FONT_CANDIDATES)
     if bold:
-        candidates.insert(0, Path("C:/Windows/Fonts/msyhbd.ttc"))
+        candidates.insert(0, Path("/AstrBot/data/fonts/MiSans-Normal.ttf"))
     for path in candidates:
         if path.is_file():
             return ImageFont.truetype(str(path), size=size)
