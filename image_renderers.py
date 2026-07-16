@@ -41,6 +41,7 @@ _FONT_CANDIDATES = (
     Path("/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc"),
     Path("/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc"),
     Path("/System/Library/Fonts/PingFang.ttc"),
+    Path("/usr/share/fonts/custom/MiSans-Normal.ttf"),
 )
 
 
