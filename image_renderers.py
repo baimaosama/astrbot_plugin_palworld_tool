@@ -133,7 +133,7 @@ def _draw_settings_chip(
     max_width: int,
 ) -> int:
     text_width = int(draw.textlength(text, font=font))
-    padding = 30
+    padding = 50
     width = min(text_width + padding, max_width)
     display_text = _fit_text(draw, text, font, max(1, width - padding))
     draw.rounded_rectangle((x, y, x + width, y + 38), 19, fill=fill, outline=outline)
@@ -422,7 +422,7 @@ def render_settings_cards(
 
     if server_password is not None:
         badge_text = f"进入密码  {server_password}"
-        padding = 34
+        padding = 60
         text_width = int(draw.textlength(badge_text, font=body_font))
         badge_width = text_width + padding
         left = max(680, 1146 - badge_width)
